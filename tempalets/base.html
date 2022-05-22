@@ -1,0 +1,24 @@
+{% load static%}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/Shome.css'%}">
+    <link rel="stylesheet" href ="{% static 'css/homeStyel.css'%}">
+    <style>
+    body{
+       background-image :  url("{% static 'photo/project.jpeg' %}");
+       background-attachment: fixed;
+       background-size:cover;
+       background-repeat: repeat;
+       height: 641px;
+       width: 1355px;
+        }
+    </style>
+
+</head>
+<body >
+{% block content %}
+{% endblock content %}
+
+
+</body>
+</html>

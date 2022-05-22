@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+ <link rel="stylesheet" href="{% static 'css/styleHome.css' %} ">
+
+ 
+<div class="topnav">
+		<a href="#home">Home</a>
+        <a class="active" href="index.html">Books</a>
+        <div class="search-container">
+            <form method="GET" action="{% url 'index' %}">
+                <input type="text" placeholder="Search.." name="search_name" type="search"> 
+                <button type="submit"><i class="fas fa-search"></i></button>        
+            </form>    
+        </div>                
+</div>
+{% endblock content%}

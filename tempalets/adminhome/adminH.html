@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+        <div class="sse" style="text-align: right; overflow: hidden;">
+            <span class="sp"><a style="color:white;" href="#">Home</a></span>
+            <span class="sp"><a style="color:white;" href="#">Update-my details</a></span>
+            <span class="sp"><a style="color:white;" href="{% url 'add' %}">Add Book</a></span>
+            <span class="sp"><a style="color:white;" href="{% url 'index' %}">Browes book</a></span>
+            <span class="sp"><a style="color:white;" href="{% url 'Home' %}">Log-out</a></span>
+        </div>
+    {% endblock content%}

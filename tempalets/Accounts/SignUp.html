@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+<title>Sign Up</title>
+<link rel="stylesheet" href= "{% static 'css\Style.css' %}">
+        <div id="container">
+            <h1 id="title">Sign up</h1>
+        <form method="POST">{% csrf_token %}
+            <label id="label" for="name" >Full Name </label><br>
+            <input id="nameDisplay" type="text" name="Fname" placeholder="First Name" style="margin-right: 10px; margin-left: 10px;">
+            <input id="nameDisplay" type="text" name="Lname" placeholder="Last Name"><br>
+
+            <label id="label" for="Email">Email Address</label><br>
+            <input id="display" type="email" name="Email" placeholder="Email Address"><br>
+
+            <label id="label"  for="password">Password</label><br>
+            <input id="display" type="password" name="password" placeholder="Password"><br>
+
+            <label id="label" for="Con-password">Confirm Password</label><br>
+            <input id="display" type="password" name="Con-password" placeholder="Renter Password"><br>
+
+            <label id="label" for="Phone">Phone Number</label><br>
+            <input id="display" type="text" name="PhoneNum" placeholder="### ### ### ##"><br>
+
+            <label id="label" for="Bdate">Birth Date</label><br>
+            <input id="display" type="date" name="Bdate" ><br>
+
+            User:
+            <input  type="radio" id="admin" name="User" value="Admin">
+            <label class="radio" for="admin">Admin</label>
+            <input  type="radio" id="student" name="User" value="Student">
+            <label class="radio" for="Student">Student</label><br>
+            <input type="submit" value="Sign Up" class="button" style="color: white;">
+        </form>
+
+        <p id="text" style="color: white;">Already have an account?<a href="{% url 'logIn' %}">Login</a></p>
+    </div>
+    {% endblock content%}

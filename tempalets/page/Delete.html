@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+<style>
+    button{
+    width: 100px;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: #b42f2f;
+  }
+  .ret{
+    width: 50px;
+    background-color: green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
+<h1><i> <u style="color:whitesmoke;"> Delete Book :</u> </i></h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h3 style="color:whitesmoke;">Do you want to delete this book?</h3>
+    
+    <button type="submit">Delete</button>
+    <a href="{% url 'index' %}" class="ret" type="button">NO</a>
+</form>
+{% endblock content%}

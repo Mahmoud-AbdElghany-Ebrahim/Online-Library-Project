@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/styleBook.css' %}">
+
+    <div class="topnav">
+        <a href="{% url 'AdminH' %}">Home</a>
+        <a class="active" href="allBooks">Books</a>
+        <div class="search-container">
+            <form method="GET" action="{% url 'index' %}">
+                <input type="text" placeholder="Search.." name="search_name" type="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div>
+        <button class="add"><a href="addBook">+Add Book</a></button>
+    </div>   
+    
+    
+
+
+    <h1><i> <u style="color:whitesmoke;"> List of Books :</u> </i></h1>
+    {% for book in books%}
+    <div class="bik" style="float: left;">
+      <img style="height: 300px; width: 100%; float:left;" src="{{book.photo_book.url}}"> 
+
+        <h2><u>{{book.title}}</u></h2>
+
+        <p>ISPN: {{book.ISPN}}</br>
+            </br>Author: {{book.author}}</br>
+            </br>publisher year: {{book.publisherYear}}</br>
+            </br>Booking price: {{book.borrowing_price_day}}</br>
+            </br>Status: {{book.status}}</p>
+            <button style="background-color:cornflowerblue" class="del"><a href="{% url 'update' book.id %}">Update Book</a></button>    
+            <button  class="del" type="button"><a href="{% url 'delete' book.id %}">Delete Book</a></button>
+    </div>
+    {% endfor %}
+    {% endblock content%}

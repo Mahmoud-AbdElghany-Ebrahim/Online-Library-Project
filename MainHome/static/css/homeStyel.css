@@ -1,0 +1,15 @@
+body{
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+.buton{
+    margin-left: 20%;
+    margin-bottom: 2%;
+    padding: 1.5%;
+    background-color: transparent;
+    font-size: 2em;
+    border-radius: 50%;
+}

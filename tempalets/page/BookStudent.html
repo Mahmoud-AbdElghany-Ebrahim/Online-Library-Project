@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/studentStyleBook.css' %}">
+
+    <div class="topnav">
+        <a href="{% url 'studentH' %}">Home</a>
+        <a class="active" href="studentBooks">Books</a>
+        <div class="search-container">
+            <form method="GET" action="{% url 'studentBooks' %}">
+                <input type="text" placeholder="Search.." name="search_name" type="search">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <h1><i> <u style="color:whitesmoke;"> List of Books :</u> </i></h1>
+    {% for book in books%}
+    <div class="bik" style="float: left;">
+      <img style="height: 300px; width: 100%; float:left;" src="{{book.photo_book.url}}"> 
+      <button  class="ext" ><a href="{% url 'extend' book.id %}">Extend Period</a></button>
+        <h2><u>{{book.title}}</u></h2>
+
+        <p>ISPN: {{book.ISPN}}</br>
+            </br>Author: {{book.author}}</br>
+            </br>publisher year: {{book.publisherYear}}</br>
+            </br>Booking price: {{book.borrowing_price_day}}</br>
+            </br>Status: {{book.status}}</p>
+            <button  class="borr"><a href="{% url 'borrowBook' book.id %}">Borrow a book</a></button>    
+            <button  class="ret" type="button"><a href="{% url 'returnBook' book.id %}">return Book</a></button>
+    </div>
+    {% endfor %}
+    {% endblock content%}

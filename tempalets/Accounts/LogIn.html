@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+    {% block content %}
+        <title>Login</title>
+        <link rel="stylesheet" href= "{% static 'css\Style.css' %}">
+        <style>
+            #container{
+                height: 310px;
+                margin-top: 150px;
+            }
+        </style>
+        <div id="container">
+            <h1 id="title">Login</h1>
+            <form method="POST">{% csrf_token %}
+            <label id="label" for="Email">Email Address</label><br>
+            <input id="display" type="email" name="Email" placeholder="Email Address"><br>
+
+            <label id="label"  for="password">Password</label><br>
+            <input id="display" type="password" name="password" placeholder="Password"><br>
+            <button class="button" type="submit" value="Login">Login </button>
+            </form>
+            
+            <p id="text" style="color: white;">Don't have an account?<a href="{% url 'signUp' %}">SignUp</a></p>
+        </div>
+    {% endblock content%}
